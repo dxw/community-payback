@@ -1,0 +1,33 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Tomorrow</h1>
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #505a5f;">
+          <div class="govuk-notification-banner__header" style="background: #505a5f;">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Not started <span style="float: right; font-weight: 400;">26 June 2026</span>              
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              Arnsford Methodist Church
+            </h3>
+            <p class="govuk-body">6 people scheduled to work this session</p>
+
+            <p class="govuk-body">
+              <a href="#" class="govuk-link">View list of people</a>.
+            </p>
+          </div>
+        </div>
+        <h1 class="govuk-heading-l">Past sessions</h1>
+      </div>
+    </div>
+
+{% endblock %}
