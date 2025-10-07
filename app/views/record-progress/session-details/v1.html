@@ -1,0 +1,94 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Session details</h1>
+        <p class="govuk-body">Status:         <strong class="govuk-tag govuk-tag--grey">
+          Not started
+        </strong></p>
+        <p class="govuk-body">26 June 2026 - 9:00am</p>
+
+        <h3 class="govuk-heading-l">
+          Arnsford Methodist Church
+        </h3>
+
+        <p class="govuk-body">12 Danton Road, Arnsford, AR7 5BN</p>
+
+            <form action="/record-progress/check-in-people/v1" method="post" novalidate>
+              <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button">
+                  Start session
+                </button>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                  Cancel session
+                </button>
+              </div>
+            </form>
+        
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <h1 class="govuk-heading-m">6 people scheduled on this session</h1>
+
+        <!-- Person one -->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Darrell Hobbs
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Date of birth
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  31 July 1985
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  CRN
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  0423843208
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Hours completed
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  135 of 150 hours
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Risks
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  RSO
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Coordinator notes
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Alcohol issues, peanut allergy, don't stand down as Darrel is nearly complete
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}

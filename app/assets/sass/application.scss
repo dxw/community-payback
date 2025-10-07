@@ -5,6 +5,26 @@
 
 // Add extra styles here
 
+/* responsive, form small screens */
+@media (max-width: 799px) {
+    #cancel-session-early {
+        margin-bottom: 0px;
+    }
+}
+
+/* responsive, form bigger screens */
+@media (min-width: 800px) {
+    #end-session {
+        margin-bottom: 0px;
+    }
+    #cancel-session-early {
+        margin-bottom: 0px;
+    }
+    #buttonSecondaryOne, #buttonPrimaryOne {
+        margin-bottom: 0px;
+    }
+}
+
 /* ==========================================================================
    #HEADER
    ========================================================================== */
