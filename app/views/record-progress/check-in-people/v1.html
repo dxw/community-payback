@@ -8,12 +8,13 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <h1 class="govuk-heading-l">Session</h1>
+
+        <h1 class="govuk-heading-l">Active session</h1>
 
         <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              <span style="font-weight: 400;">26 June 2026</span>
+              <span style="font-weight: 400;">9:00 on 26 June 2026</span>
               <span style="float: right; font-weight: 700;">Active              
             </h2>
           </div>
@@ -116,6 +117,412 @@
               </script>
 
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryOne">
+                Stand down
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Person two -->
+        <div class="govuk-summary-card" id="borderColorTwo">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Roman Roy<br>
+              <span style="font-weight: 400;">098765546</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                <strong class="govuk-tag govuk-tag--yellow" id="tagColorTwo">
+                  <span id="textColorTwo">Not attended</span>
+                </strong>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      6 May 1990
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      15 of 180 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Anxiety issues, sensory issues - can't wear hi-vis
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <div class="govuk-button-group">
+              <button onclick="personTwo()" class="govuk-button" data-module="govuk-button" id="buttonPrimaryTwo">
+                Working
+              </button>
+
+              <script>
+                function personTwo() {
+                  document.getElementById("textColorTwo").style.color = "#00703c";
+                  document.getElementById("tagColorTwo").style.backgroundColor = "#cce2d8";
+                  document.getElementById("textColorTwo").innerHTML = "Active";
+                  document.getElementById("buttonPrimaryTwo").style.display = "none";
+                  document.getElementById("buttonSecondaryTwo").innerHTML = "Send home"
+                }
+              </script>
+
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryOne">
+                Stand down
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Person three -->
+        <div class="govuk-summary-card" id="borderColorTwo">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Jackson Lamb<br>
+              <span style="font-weight: 400;">0837648723</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                <strong class="govuk-tag govuk-tag--yellow" id="tagColorTwo">
+                  <span id="textColorTwo">Not attended</span>
+                </strong>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      19 November 1963
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      20 of 240 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Alcohol issues, anger issues
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <div class="govuk-button-group">
+              <button onclick="personTwo()" class="govuk-button" data-module="govuk-button" id="buttonPrimaryThree">
+                Working
+              </button>
+
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryThree">
+                Stand down
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Person four -->
+        <div class="govuk-summary-card" id="borderColorTwo">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Roddy Ho<br>
+              <span style="font-weight: 400;">874578475</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                <strong class="govuk-tag govuk-tag--yellow" id="tagColorFour">
+                  <span id="textColorFour">Not attended</span>
+                </strong>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      8 September 1988
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      170 of 180 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      RSO
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Do not stand down
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <div class="govuk-button-group">
+              <button onclick="personFour()" class="govuk-button" data-module="govuk-button" id="buttonPrimaryFour">
+                Working
+              </button>
+
+              <script>
+                function personFour() {
+                  document.getElementById("textColorFour").style.color = "#00703c";
+                  document.getElementById("tagColorFour").style.backgroundColor = "#cce2d8";
+                  document.getElementById("textColorFour").innerHTML = "Active";
+                  document.getElementById("buttonPrimaryFour").style.display = "none";
+                  document.getElementById("buttonSecondaryFour").innerHTML = "Send home"
+                }
+              </script>
+
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFour">
+                Stand down
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Person five -->
+        <div class="govuk-summary-card" id="borderColorTwo">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Dennis Reynolds<br>
+              <span style="font-weight: 400;">09636363</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                <strong class="govuk-tag govuk-tag--yellow" id="tagColorFour">
+                  <span id="textColorFive">Not attended</span>
+                </strong>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      9 January 1976
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      170 of 180 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Substance issues, anger issues
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <form action="/record-progress/stand-down/reason/v1" method="post" novalidate>
+
+              <div class="govuk-button-group">
+
+                <button onclick="personFive()" class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive">
+                  Working
+                </button>
+
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
+                  Stand down
+                </button>
+
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+        <!-- Person six -->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Gareth Keenan<br>
+              <span style="font-weight: 400;">874578475</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                <strong class="govuk-tag govuk-tag--yellow" id="tagColorSix">
+                  <span id="textColorSix">Not attended</span>
+                </strong>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      8 September 1988
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      170 of 180 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      RSO
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Do not stand down
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <div class="govuk-button-group">
+              <button onclick="personSix()" class="govuk-button" data-module="govuk-button" id="buttonPrimarySix">
+                Working
+              </button>
+
+              <script>
+                function personSix() {
+                  document.getElementById("textColorSix").style.color = "#00703c";
+                  document.getElementById("tagColorSix").style.backgroundColor = "#cce2d8";
+                  document.getElementById("textColorSix").innerHTML = "Active";
+                  document.getElementById("buttonPrimarySix").style.display = "none";
+                  document.getElementById("buttonSecondarySix").innerHTML = "Send home"
+                }
+              </script>
+
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondarySix">
                 Stand down
               </button>
             </div>

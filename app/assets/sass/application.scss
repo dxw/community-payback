@@ -3,7 +3,7 @@
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
 // 
 
-// Add extra styles here
+// Responsive design //
 
 /* responsive, form small screens */
 @media (max-width: 799px) {
@@ -17,17 +17,19 @@
     #end-session {
         margin-bottom: 0px;
     }
+
     #cancel-session-early {
         margin-bottom: 0px;
     }
-    #buttonSecondaryOne, #buttonPrimaryOne {
+
+    #buttonSecondaryOne, #buttonPrimaryOne, #buttonSecondaryTwo, #buttonPrimaryTwo, #buttonSecondaryThree, #buttonPrimaryThree, #buttonSecondaryFour, #buttonPrimaryFour, #buttonSecondaryFive, #buttonPrimaryFive,
+    #buttonSecondarySix, #buttonPrimarySix {
         margin-bottom: 0px;
     }
 }
 
-/* ==========================================================================
-   #HEADER
-   ========================================================================== */
+// HMPPS header //
+
 .moj-header {
   background-color: #0b0c0c;
   padding-top: 15px;
@@ -335,4 +337,9 @@ span.moj-header__link:hover {
 
 .moj-header__navigation-link[aria-current=page] {
   text-decoration: none;
+}
+
+#crn {
+  font-weight: 400px; 
+  font-size: 19px;
 }
