@@ -6,10 +6,10 @@
 
 {% block content %}
 
-    <div class="govuk-grid-row">
+    <div class="govuk-grid-row" id="top">
       <div class="govuk-grid-column-two-thirds">
         <h1 class="govuk-heading-l">Today</h1>
-        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #505a5f;">
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #505a5f; outline: none;">
           <div class="govuk-notification-banner__header" style="background: #505a5f;">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
               <span style="font-weight: 400;">26 June 2026</span> <span style="float: right;">Not started</span>              
@@ -23,10 +23,10 @@
 
             <form action="/record-progress/session-details/v1" method="post" novalidate>
               <div class="govuk-button-group">
-                <button type="submit" class="govuk-button" data-module="govuk-button">
+                <button type="submit" class="govuk-button" data-module="govuk-button" id="buttonPrimaryOne">
                   Start session
                 </button>
-                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryOne">
                   View details
                 </button>
               </div>
@@ -36,7 +36,7 @@
         </div>
 
         <h1 class="govuk-heading-l">Past sessions</h1>
-        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #f3f2f1 ;">
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #f3f2f1; outline: none;">
           <div class="govuk-notification-banner__header" style="background: #f3f2f1 ;">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" style="color: #0b0c0c ;">
               <span style="font-weight: 400;">25 June 2026</span> <span style="float: right;">Finished</span>               
