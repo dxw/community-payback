@@ -49,8 +49,8 @@
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                <strong class="govuk-tag govuk-tag--yellow" id="tagColorOne">
-                  <span id="textColorOne">Not attended</span>
+                <strong class="govuk-tag govuk-tag--blue" id="tagColorOne">
+                  <span id="textColorOne">Scheduled</span>
                 </strong>
               </li>
             </ul>
@@ -112,10 +112,15 @@
                   document.getElementById("tagColorOne").style.backgroundColor = "#cce2d8";
                   document.getElementById("textColorOne").innerHTML = "Active";
                   document.getElementById("buttonPrimaryOne").style.display = "none";
+                  document.getElementById("buttonAbsentOne").style.display = "none";
                   document.getElementById("buttonUndoOne").style.display = "inline";
                   document.getElementById("buttonSecondaryOne").innerHTML = "Send home"
                 }
               </script>
+
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentOne">
+                Absent
+              </button>
 
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryOne">
                 Stand down
@@ -136,8 +141,8 @@
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                <strong class="govuk-tag govuk-tag--yellow" id="tagColorTwo">
-                  <span id="textColorTwo">Not attended</span>
+                <strong class="govuk-tag govuk-tag--blue" id="tagColorTwo">
+                  <span id="textColorTwo">Scheduled</span>
                 </strong>
               </li>
             </ul>
@@ -199,10 +204,15 @@
                   document.getElementById("tagColorTwo").style.backgroundColor = "#cce2d8";
                   document.getElementById("textColorTwo").innerHTML = "Active";
                   document.getElementById("buttonPrimaryTwo").style.display = "none";
+                  document.getElementById("buttonAbsentTwo").style.display = "none";
                   document.getElementById("buttonUndoTwo").style.display = "inline";
                   document.getElementById("buttonSecondaryTwo").innerHTML = "Send home"
                 }
               </script>
+
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentTwo">
+                Absent
+              </button>
 
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryOne">
                 Stand down
@@ -224,8 +234,8 @@
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                <strong class="govuk-tag govuk-tag--yellow" id="tagColorTwo">
-                  <span id="textColorTwo">Not attended</span>
+                <strong class="govuk-tag govuk-tag--blue" id="tagColorThree">
+                  <span id="textColorThree">Scheduled</span>
                 </strong>
               </li>
             </ul>
@@ -277,13 +287,32 @@
             </details>
 
             <div class="govuk-button-group">
-              <button onclick="personTwo()" class="govuk-button" data-module="govuk-button" id="buttonPrimaryThree">
+              <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryThree">
                 Working
+              </button>
+
+              <script>
+                function personThree() {
+                  document.getElementById("textColorThree").style.color = "#594d00";
+                  document.getElementById("tagColorThree").style.backgroundColor = "#fff7bf";
+                  document.getElementById("textColorThree").innerHTML = "Absent";
+                  document.getElementById("buttonPrimaryThree").style.display = "none";
+                  document.getElementById("buttonAbsentThree").style.display = "none";
+                  document.getElementById("buttonUndoThree").style.display = "inline";
+                  document.getElementById("buttonSecondaryThree").innerHTML = "Send home"
+                }
+              </script>
+
+              <button onclick="personThree()" type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentThree">
+                Absent
               </button>
 
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryThree">
                 Stand down
               </button>
+
+              <a class="govuk-link" href="#" id="buttonUndoThree">Undo</a>
+
             </div>
 
           </div>
@@ -298,8 +327,8 @@
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                <strong class="govuk-tag govuk-tag--yellow" id="tagColorFour">
-                  <span id="textColorFour">Not attended</span>
+                <strong class="govuk-tag govuk-tag--blue" id="tagColorFour">
+                  <span id="textColorFour">Scheduled</span>
                 </strong>
               </li>
             </ul>
@@ -361,10 +390,15 @@
                   document.getElementById("tagColorFour").style.backgroundColor = "#cce2d8";
                   document.getElementById("textColorFour").innerHTML = "Active";
                   document.getElementById("buttonPrimaryFour").style.display = "none";
+                  document.getElementById("buttonAbsentFour").style.display = "none";
                   document.getElementById("buttonUndoFour").style.display = "inline";
                   document.getElementById("buttonSecondaryFour").innerHTML = "Send home"
                 }
               </script>
+
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentFour">
+                Absent
+              </button>
 
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFour">
                 Stand down
@@ -386,8 +420,8 @@
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                <strong class="govuk-tag govuk-tag--yellow" id="tagColorFour">
-                  <span id="textColorFive">Not attended</span>
+                <strong class="govuk-tag govuk-tag--blue" id="tagColorFour">
+                  <span id="textColorFive">Scheduled</span>
                 </strong>
               </li>
             </ul>
@@ -446,6 +480,10 @@
                   Working
                 </button>
 
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix">
+                  Absent
+                </button>
+
                 <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
                   Stand down
                 </button>
@@ -466,8 +504,8 @@
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                <strong class="govuk-tag govuk-tag--yellow" id="tagColorSix">
-                  <span id="textColorSix">Not attended</span>
+                <strong class="govuk-tag govuk-tag--blue" id="tagColorSix">
+                  <span id="textColorSix">Scheduled</span>
                 </strong>
               </li>
             </ul>
@@ -529,10 +567,15 @@
                   document.getElementById("tagColorSix").style.backgroundColor = "#cce2d8";
                   document.getElementById("textColorSix").innerHTML = "Active";
                   document.getElementById("buttonPrimarySix").style.display = "none";
+                  document.getElementById("buttonAbsentSix").style.display = "none";
                   document.getElementById("buttonUndoSix").style.display = "inline";
                   document.getElementById("buttonSecondarySix").innerHTML = "Send home"
                 }
               </script>
+
+              <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix">
+                Absent
+              </button>
 
               <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondarySix">
                 Stand down
