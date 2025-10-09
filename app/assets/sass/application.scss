@@ -22,8 +22,10 @@
         margin-bottom: 0px;
     }
 
-    #buttonSecondaryOne, #buttonPrimaryOne, #buttonSecondaryTwo, #buttonPrimaryTwo, #buttonSecondaryThree, #buttonPrimaryThree, #buttonSecondaryFour, #buttonPrimaryFour, #buttonSecondaryFive, #buttonPrimaryFive,
-    #buttonSecondarySix, #buttonPrimarySix {
+    #buttonSecondaryOne, #buttonPrimaryOne, #buttonUndoOne,
+    #buttonSecondaryTwo, #buttonPrimaryTwo, #buttonUndoTwo,
+    #buttonSecondaryThree, #buttonPrimaryThree, #buttonSecondaryFour, #buttonPrimaryFour, #buttonUndoFour, #buttonSecondaryFive, #buttonPrimaryFive,
+    #buttonSecondarySix, #buttonPrimarySix, #buttonUndoSix {
         margin-bottom: 0px;
     }
 }
@@ -339,7 +341,6 @@ span.moj-header__link:hover {
   text-decoration: none;
 }
 
-#crn {
-  font-weight: 400px; 
-  font-size: 19px;
+#buttonUndoOne, #buttonUndoTwo, #buttonUndoFour, #buttonUndoSix {
+  display: none;
 }
