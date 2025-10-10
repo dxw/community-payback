@@ -1,0 +1,100 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+        <form action="/record-progress/session-details/v2#personFive" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Why was Dennis Reynolds stood down today?
+                </h1>
+              </legend>
+              <div id="contact-hint" class="govuk-hint">
+                Select one option
+              </div>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+                  <label class="govuk-label govuk-radios__label" for="contact">
+                    No spaces left on session
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="3" aria-describedby="more-detail-hint"></textarea>
+
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                  <label class="govuk-label govuk-radios__label" for="contact-2">
+                    Currently suspended
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="3" aria-describedby="more-detail-hint"></textarea>
+
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-3" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-3">
+                  <label class="govuk-label govuk-radios__label" for="contact-3">
+                    Wrong risk status for project
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="3" aria-describedby="more-detail-hint"></textarea>
+
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-4" name="contact" type="radio" value="text" data-aria-controls="conditional-contact-4">
+                  <label class="govuk-label govuk-radios__label" for="contact-4">
+                    Not sober
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-4">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetail" rows="3" aria-describedby="more-detail-hint"></textarea>
+
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+    
+
+      </div>
+    </div>
+
+{% endblock %}

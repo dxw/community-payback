@@ -1,0 +1,628 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Session details</h1>
+
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #505a5f; outline: none;">
+          <div class="govuk-notification-banner__header" style="background: #505a5f;">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              9:00-16:00 – 26 June 2026              
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              Arnsford Methodist Church
+            </h3>
+            <p class="govuk-body">12 Danton Road, Arnsford, AR7 5BN</p>
+
+            <form action="/record-progress/session-details/v1" method="post" novalidate>
+              <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button" style="background: #505a5f;" id="end-session">
+                  End session
+                </button>
+                <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="cancel-session-early">
+                  Cancel session early
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+        <h1 class="govuk-heading-m">6 people scheduled on this session</h1>
+
+        <!-- Person one -->
+        <div class="govuk-summary-card" id="personOne">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Darrell Hobbs<br>
+              <span style="font-weight: 400;">423843208</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                {% if data.personOneStatus=="working" %}
+                  <strong class="govuk-tag govuk-tag--green">
+                    Active
+                  </strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Scheduled
+                  </strong>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      31 July 1985
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      135 of 150 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      RSO
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Alcohol issues, peanut allergy, don't stand down as Darrel is nearly complete
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <form action="/record-progress/check-in-individuals/v1/person-1" method="post" novalidate>
+
+              <div class="govuk-button-group">
+
+                {% if data.personOneStatus=="working" %}
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Send home
+                  </button>
+
+                {% else %}
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="working">
+                    Working
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Absent
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
+                    Stand down
+                  </button>
+                {% endif %}
+
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+        <!-- Person two -->
+        <div class="govuk-summary-card" id="personTwo">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Roman Roy<br>
+              <span style="font-weight: 400;">098765546</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                {% if data.personTwoStatus=="working" %}
+                  <strong class="govuk-tag govuk-tag--green">
+                    Active
+                  </strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Scheduled
+                  </strong>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      6 May 1990
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      15 of 180 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Anxiety issues, sensory issues - can't wear hi-vis
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <form action="/record-progress/check-in-individuals/v1/person-2" method="post" novalidate>
+
+              <div class="govuk-button-group">
+
+                {% if data.personTwoStatus=="working" %}
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Send home
+                  </button>
+
+                {% else %}
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personTwoStatus" value="working">
+                    Working
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Absent
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
+                    Stand down
+                  </button>
+                {% endif %}
+
+              </div>
+
+            </form>
+          </div>
+        </div>
+
+        <!-- Person three -->
+        <div class="govuk-summary-card" id="personThree">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Jackson Lamb<br>
+              <span style="font-weight: 400;">0837648723</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                {% if data.personThreeStatus=="absent" %}
+                  <strong class="govuk-tag govuk-tag--yellow">
+                    Absent
+                  </strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Scheduled
+                  </strong>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      19 November 1963
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      20 of 240 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Alcohol issues, anger issues
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <form action="/record-progress/check-in-individuals/v1/person-3" method="post" novalidate>
+
+              <div class="govuk-button-group">
+
+                {% if data.personThreeStatus=="absent" %}
+                  <!--
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Send home
+                  </button>
+                  -->
+
+                {% else %}
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive">
+                    Working
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="personThreeStatus" value="absent">
+                    Absent
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
+                    Stand down
+                  </button>
+                {% endif %}
+
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+        <!-- Person four -->
+        <div class="govuk-summary-card" id="personFour">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Roddy Ho<br>
+              <span style="font-weight: 400;">874578475</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                {% if data.personFourStatus=="working" %}
+                  <strong class="govuk-tag govuk-tag--green">
+                    Active
+                  </strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Scheduled
+                  </strong>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      8 September 1988
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      170 of 180 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      RSO
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Do not stand down
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <form action="/record-progress/check-in-individuals/v1/person-4" method="post" novalidate>
+
+              <div class="govuk-button-group">
+
+                {% if data.personFourStatus=="working" %}
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="status" value="working">
+                    Send home
+                  </button>
+
+                {% else %}
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working">
+                    Working
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Absent
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
+                    Stand down
+                  </button>
+                {% endif %}
+
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+        <!-- Person five -->
+        <div class="govuk-summary-card" id="personFive">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Dennis Reynolds<br>
+              <span style="font-weight: 400;">09636363</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                {% if data.personFiveStatus=="stoodDown" %}
+                  <strong class="govuk-tag govuk-tag--pink">
+                    Stood down
+                  </strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Scheduled
+                  </strong>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      9 January 1976
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      170 of 180 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      None
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Substance issues, anger issues
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <form action="/record-progress/check-in-individuals/v1/person-5" method="post" novalidate>
+
+              <div class="govuk-button-group">
+
+                {% if data.personFiveStatus=="stoodDown" %}
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="status" value="working">
+                    Send home
+                  </button>
+
+                {% else %}
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working">
+                    Working
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Absent
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive" name="personFiveStatus" value="stoodDown">
+                    Stand down
+                  </button>
+                {% endif %}
+
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+        <!-- Person six -->
+        <div class="govuk-summary-card" id="personSix">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Gareth Keenan<br>
+              <span style="font-weight: 400;">874578475</span>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                {% if data.personSixStatus=="working" %}
+                  <strong class="govuk-tag govuk-tag--green">
+                    Active
+                  </strong>
+                {% else %}
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Scheduled
+                  </strong>
+                {% endif %}
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+
+            <details class="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                  View details
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Date of birth
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      8 September 1988
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Hours completed
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      170 of 180 hours
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Risks
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      RSO
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Coordinator notes
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Do not stand down
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </details>
+
+            <div class="govuk-button-group">
+
+              <form action="/record-progress/check-in-individuals/v1/person-6" method="post" novalidate>
+
+                {% if data.personSixStatus=="working" %}
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="status" value="working">
+                    Send home
+                  </button>
+
+                {% else %}
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working">
+                    Working
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Absent
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
+                    Stand down
+                  </button>
+                {% endif %}
+
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}

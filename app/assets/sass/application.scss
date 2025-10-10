@@ -22,10 +22,12 @@
         margin-bottom: 0px;
     }
 
-    #buttonSecondaryOne, #buttonPrimaryOne, #buttonUndoOne,
-    #buttonSecondaryTwo, #buttonPrimaryTwo, #buttonUndoTwo,
-    #buttonSecondaryThree, #buttonPrimaryThree, #buttonSecondaryFour, #buttonPrimaryFour, #buttonUndoFour, #buttonSecondaryFive, #buttonPrimaryFive,#buttonUndoFive,
-    #buttonSecondarySix, #buttonPrimarySix, #buttonUndoSix {
+    #buttonSecondaryOne, #buttonPrimaryOne, #buttonAbsentOne, #buttonUndoOne,
+    #buttonSecondaryTwo, #buttonPrimaryTwo, #buttonAbsentTwo, #buttonUndoTwo,
+    #buttonSecondaryThree, #buttonPrimaryThree, #buttonAbsentThree, #buttonUndoThree,
+    #buttonSecondaryFour, #buttonPrimaryFour, #buttonAbsentFour, #buttonUndoFour, 
+    #buttonSecondaryFive, #buttonPrimaryFive, #buttonAbsentFive, #buttonUndoFive,
+    #buttonSecondarySix, #buttonPrimarySix, #buttonAbsentSix, #buttonUndoSix {
         margin-bottom: 0px;
     }
 }
@@ -341,6 +343,6 @@ span.moj-header__link:hover {
   text-decoration: none;
 }
 
-#buttonUndoOne, #buttonUndoTwo, #buttonUndoFour, #buttonUndoSix {
+#buttonUndoOne, #buttonUndoTwo, #buttonUndoThree, #buttonUndoFour, #buttonUndoSix {
   display: none;
 }
