@@ -495,6 +495,15 @@
               </div>
             </details>
 
+            {% if data.personSixStatus=="working" %}
+              <p>
+                <span style="font-weight: 700;">Wrong risk status for project</span><br>
+                Given Dennis' RSO offence he was not safe to work on the project today
+              </p>
+            {% else %}
+              <!-- NOTHING -->
+            {% endif %}
+
             <form action="/record-progress/check-in-individuals/v1/person-5" method="post" novalidate>
 
               <div class="govuk-button-group">
