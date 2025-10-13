@@ -500,9 +500,6 @@
               <div class="govuk-button-group">
 
                 {% if data.personFiveStatus=="stoodDown" %}
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="status" value="working">
-                    Send home
-                  </button>
 
                 {% else %}
                   <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working">
@@ -526,10 +523,10 @@
         </div>
 
         <!-- Person six -->
-        <div class="govuk-summary-card" id="personSix">
+        <div class="govuk-summary-card" id="personFour">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              Gareth Keenan<br>
+              Gareth Keenan<br> 
               <span style="font-weight: 400;">874578475</span>
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
@@ -592,9 +589,9 @@
               </div>
             </details>
 
-            <div class="govuk-button-group">
+            <form action="/record-progress/check-in-individuals/v1/person-6" method="post" novalidate>
 
-              <form action="/record-progress/check-in-individuals/v1/person-6" method="post" novalidate>
+              <div class="govuk-button-group">
 
                 {% if data.personSixStatus=="working" %}
                   <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="status" value="working">
@@ -615,9 +612,9 @@
                   </button>
                 {% endif %}
 
-              </form>
+              </div>
 
-            </div>
+            </form>
 
           </div>
         </div>

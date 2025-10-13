@@ -1,0 +1,28 @@
+{% extends "layouts/email.html" %}
+{% set pageName="Payments prototypes" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds" id="confirmation-email">
+
+        
+          <p>
+               From: <span class="govuk-!-font-weight-bold">Community Payback Operations team
+                </span><br>
+               Subject: <span class="govuk-!-font-weight-bold">26 June 2026 - session details ready to view</span>
+          </p>
+
+          <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible" style="margin-bottom: 25px; margin-top: 25px; border-bottom: 2px solid #243746;">
+
+          <p>Hello Glen,</p>
+          <p>Tomorrow’s Community Payback session details are now ready for you to view on the Track progress on Community Payback app:</p>
+          <p><a href="/record-progress/supervisor-home/v2">https://www.track-community-payback.justice.gov.uk</a></p>
+          <p>Thanks,</p>
+          <p>Community Payback Operations team</p>
+
+    </div>
+  </div>
+
+
+{% endblock %}
