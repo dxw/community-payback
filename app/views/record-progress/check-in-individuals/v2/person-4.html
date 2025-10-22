@@ -1,0 +1,40 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <a href="javascript:history.go(-1)" class="govuk-back-link">Back</a>
+
+        <form action="/record-progress/session-details/v3#personFour" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                You're logging in Scott Green to start work today at:
+              </h1>
+            </legend>
+            <select class="govuk-select govuk-input--width-5" id="sort" name="startTimePersonFour">
+              <option value="9:00" selected>9:00</option>
+              <option value="9:15">9:15</option>
+              <option value="9:30">9:30</option>
+              <option value="9:45">9:45</option>
+              <option value="10:00">10:00</option>
+            </select>
+          </div>
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Confirm and continue
+          </button>
+        </form>
+    
+
+      </div>
+    </div>
+
+{% endblock %}

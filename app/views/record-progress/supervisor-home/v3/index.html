@@ -1,0 +1,65 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row" id="top">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-l">Next session</h1>
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #505a5f; outline: none;">
+          <div class="govuk-notification-banner__header" style="background: #505a5f;">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title"style="font-weight: 400;">
+              26 June 2026 at 9:00-16:00             
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              Group 2
+            </h3>
+            <p class="govuk-body">6 people scheduled to work this session<br>
+            </p>
+
+            <form action="/record-progress/session-details/v3" method="post" novalidate>
+              <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button" id="buttonPrimaryOne">
+                  View details
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+        <!--
+        <h1 class="govuk-heading-l">Past sessions</h1>
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #f3f2f1; outline: none;">
+          <div class="govuk-notification-banner__header" style="background: #f3f2f1 ;">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" style="color: #0b0c0c ;">
+              <span style="font-weight: 400;">25 June 2026</span> <span style="float: right;">Finished</span>               
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              Arnsford Methodist Church
+            </h3>
+            <p class="govuk-body">
+              5 people attended this session<br>
+              2 people did not attend<br>
+              1 person stood down
+            </p>
+
+            <p class="govuk-body">
+              <a href="#" class="govuk-link">View details</a>
+            </p>
+          </div>
+        </div>
+        -->
+
+
+      </div>
+    </div>
+
+{% endblock %}
