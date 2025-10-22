@@ -14,7 +14,7 @@
         <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #505a5f; outline: none;">
           <div class="govuk-notification-banner__header" style="background: #505a5f;">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" style="font-weight: 400;">
-              26 June 2026 at 9:00-16:00             
+              26 June 2026 at 9:00 - 16:00             
             </h2>
           </div>
           <div class="govuk-notification-banner__content">
@@ -22,7 +22,7 @@
               Group 2
             </h3>
             <p class="govuk-body">Arnsford Methodist Church<br>12 Danton Road<br>Arnsford<br> AR7 5BN</p>
-
+            <!---
             <form action="/record-progress/end-session/v1/confirm-time" method="post" novalidate>
               <div class="govuk-button-group">
                 <button type="submit" class="govuk-button" data-module="govuk-button" style="background: #505a5f;" id="buttonAbsentSix">
@@ -30,6 +30,7 @@
                 </button>
               </div>
             </form>
+          -->
 
           </div>
         </div>
@@ -45,12 +46,16 @@
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                {% if data.personOneStatus=="working" %}
+                {% if data.personOneStatus=="CompletedScheduledHours" %}
+                  <strong class="govuk-tag govuk-tag--blue">
+                    Session complete
+                  </strong>
+                {% elif data.personOneStatus=="working" %}
                   <strong class="govuk-tag govuk-tag--green">
                     Active
                   </strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--blue">
+                  <strong class="govuk-tag govuk-tag--grey">
                     Scheduled
                   </strong>
                 {% endif %}
@@ -96,24 +101,40 @@
                       Coordinator notes
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      Alcohol issues, peanut allergy, don't stand down as Darrel is nearly complete
+                      Alcohol issues, peanut allergy, don't stand down as Alex is nearly complete
                     </dd>
                   </div>
                 </dl>
               </div>
             </details>
 
-            <form action="/record-progress/check-in-individuals/v2/person-1" method="post" novalidate>
+            {% if data.personOneStatus=="CompletedScheduledHours" %}
+            
+            {% elif data.personOneStatus=="working" %}
 
-              <div class="govuk-button-group">
+              <form action="/record-progress/check-out-individuals/v1/person-1" method="post" novalidate>
 
-                {% if data.personOneStatus=="working" %}
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    End early
+                <div class="govuk-button-group">
+
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours" style="background: #505a5f;">
+                    Finish session
                   </button>
 
-                {% else %}
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="working">
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentOne" name="status" value="working">
+                    Send home
+                  </button>
+
+                </div>
+
+              </form>
+
+            {% else %}
+
+              <form action="/record-progress/check-in-individuals/v2/person-1" method="post" novalidate>
+
+                <div class="govuk-button-group">
+
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="working" style="background: #505a5f;">
                     Working
                   </button>
 
@@ -124,24 +145,37 @@
                   <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
                     Stand down
                   </button>
-                {% endif %}
 
               </div>
 
             </form>
 
+          {% endif %}
+
           </div>
-          {% if data.personOneStatus=="working" %}
-          <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
-            <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Started worked at</span> {{ data['startTimePersonOne'] }}
-            </h2>
-            <ul class="govuk-summary-card__actions" id="status-tag">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
-              </li>
-            </ul>
-          </div>
+          {% if data.personOneStatus=="CompletedScheduledHours" %}
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Started work at</span> {{ data['startTimePersonOne'] }}<br>
+                <span style="font-weight: 400;">Finished work at</span> {{ data['FinishTimePersonOne'] }}
+              </h2>
+              <ul class="govuk-summary-card__actions" id="status-tag">
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
+                </li>
+              </ul>
+            </div>
+          {% elif data.personOneStatus=="working" %}
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Started work at</span> {{ data['startTimePersonOne'] }}
+              </h2>
+              <ul class="govuk-summary-card__actions" id="status-tag">
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
+                </li>
+              </ul>
+            </div>
           {% endif %}
         </div>
 
@@ -159,7 +193,7 @@
                     Active
                   </strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--blue">
+                  <strong class="govuk-tag govuk-tag--grey">
                     Scheduled
                   </strong>
                 {% endif %}
@@ -217,12 +251,17 @@
               <div class="govuk-button-group">
 
                 {% if data.personTwoStatus=="working" %}
+
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours" style="background: #505a5f;">
+                    Finish session
+                  </button>
+
                   <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    End early
+                    Send home
                   </button>
 
                 {% else %}
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personTwoStatus" value="working">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personTwoStatus" value="working" style="background: #505a5f;">
                     Working
                   </button>
 
@@ -242,7 +281,7 @@
           {% if data.personTwoStatus=="working" %}
           <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
             <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Started worked at</span> {{ data['startTimePersonTwo'] }}
+              <span style="font-weight: 400;">Started work at</span> {{ data['startTimePersonTwo'] }}
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
@@ -267,7 +306,7 @@
                     Absent
                   </strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--blue">
+                  <strong class="govuk-tag govuk-tag--grey">
                     Scheduled
                   </strong>
                 {% endif %}
@@ -327,12 +366,12 @@
                 {% if data.personThreeStatus=="absent" %}
                   <!--
                   <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    End early
+                    Send home
                   </button>
                   -->
 
                 {% else %}
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" style="background: #505a5f;">
                     Working
                   </button>
 
@@ -382,7 +421,7 @@
                     Active
                   </strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--blue">
+                  <strong class="govuk-tag govuk-tag--grey">
                     Scheduled
                   </strong>
                 {% endif %}
@@ -452,8 +491,12 @@
 
               <div class="govuk-button-group">
 
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours" style="background: #505a5f;">
+                    Finish session
+                  </button>
+
                   <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="personFourStatus" value="sentHomeEarly">
-                    End early
+                    Send home
                   </button>
               </div>
 
@@ -466,7 +509,7 @@
 
               <div class="govuk-button-group">
 
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working" style="background: #505a5f;">
                     Working
                   </button>
 
@@ -500,7 +543,7 @@
           {% elif data.personFourStatus=="working" %}
           <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
             <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Started worked at</span> {{ data['startTimePersonFour'] }}
+              <span style="font-weight: 400;">Started work at</span> {{ data['startTimePersonFour'] }}
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
@@ -525,7 +568,7 @@
                     Stood down
                   </strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--blue">
+                  <strong class="govuk-tag govuk-tag--grey">
                     Scheduled
                   </strong>
                 {% endif %}
@@ -536,7 +579,7 @@
 
             {% if data.personFiveStatus=="stoodDown" %}
               <p>Stand down reason: <span style="font-weight: 700;">{{ data['stoodDownReason'] }}</span><br>
-              <p>Detail of stand down: <span style="font-weight: 700;">{{ data['moreDetailPersonFive'] }}</span></p>
+              Detail of stand down: <span style="font-weight: 700;">{{ data['moreDetailPersonFive'] }}</span></p>
             {% else %}
               <!-- NOTHING -->
             {% endif %}
@@ -592,7 +635,7 @@
                 {% if data.personFiveStatus=="stoodDown" %}
 
                 {% else %}
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working" style="background: #505a5f;">
                     Working
                   </button>
 
@@ -638,7 +681,7 @@
                     Active
                   </strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--blue">
+                  <strong class="govuk-tag govuk-tag--grey">
                     Scheduled
                   </strong>
                 {% endif %}
@@ -696,12 +739,17 @@
               <div class="govuk-button-group">
 
                 {% if data.personSixStatus=="working" %}
+
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours" style="background: #505a5f;">
+                    Finish session
+                  </button>
+
                   <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="status" value="working">
-                    End early
+                    Send home
                   </button>
 
                 {% else %}
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personSixStatus" value="working">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personSixStatus" value="working" style="background: #505a5f;">
                     Working
                   </button>
 
@@ -722,7 +770,7 @@
           {% if data.personSixStatus=="working" %}
           <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
             <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Started worked at</span> {{ data['startTimePersonSix'] }}
+              <span style="font-weight: 400;">Started work at</span> {{ data['startTimePersonSix'] }}
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
