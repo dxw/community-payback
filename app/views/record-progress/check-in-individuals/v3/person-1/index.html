@@ -1,0 +1,124 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">
+          CRN: 42924323
+        </span>
+        <h1 class="govuk-heading-l">Alex Boyle</h1>
+
+
+            <!-- BUTTONS to change status for PERSON -->
+
+            <!-- NO BUTTONS as there's no call-to-action when someone's marked as 'Session complete' -->
+            {% if data.personOneStatus=="CompletedScheduledHours" %}
+
+              
+            <!-- Buttons for when someone's status is marked as WORKING -->
+            {% elif data.personOneStatus=="working" %}
+
+
+              <form action="/record-progress/check-out-individuals/v2/person-1" method="post" novalidate>
+
+                <div class="govuk-button-group">
+
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours">
+                    Finish session
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentOne" name="status" value="working">
+                    Left site early
+                  </button>
+
+                </div>
+
+              </form>
+
+            <!-- DEFAULT buttons for when default status of SCHEDULED -->
+            {% else %}
+
+              <form action="/record-progress/check-in-individuals/v3/person-1/time" method="post" novalidate>
+
+                <div class="govuk-button-group">
+
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="working">
+                    Arrive
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Not arrived
+                  </button>
+
+              </div>
+
+            </form>
+
+          {% endif %}
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">
+                Details
+              </h2>
+            </div>
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Session status
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if data.personOneStatus=="CompletedScheduledHours" %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--blue">
+                        Session complete
+                      </strong>
+                    {% elif data.personOneStatus=="working" %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--green">
+                        Active
+                      </strong>
+                    {% else %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--grey">
+                        Scheduled
+                      </strong>
+                    {% endif %}
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Pick up point
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    Arnsford Leisure Centre<br>Arnsford<br> AR21 5BN
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Scheduled start time
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    16:00
+                  </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Scheduled finish time
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    16:00
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+{% endblock %}

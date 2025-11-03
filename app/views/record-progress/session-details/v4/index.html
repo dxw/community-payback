@@ -12,7 +12,7 @@
         <h1 class="govuk-heading-l">Session details</h1>
 
         <!-- summary card for session details: time/date and address -->
-        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #505a5f; outline: none;">
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #505a5f; outline: none; margin-bottom: 20px;">
           <div class="govuk-notification-banner__header" style="background: #505a5f;">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" style="font-weight: 400;">
               26 June 2026         
@@ -24,43 +24,41 @@
             </h3>
             <p class="govuk-body">Arnsford Methodist Church<br>12 Danton Road<br>Arnsford<br> AR7 5BN</p>
 
-            <form action="/record-progress/end-session/v1/confirm-time" method="post" novalidate>
-              <div class="govuk-button-group">
-                <button type="submit" class="govuk-button" data-module="govuk-button" id="buttonAbsentSix">
-                  Submit information
-                </button>
-              </div>
-            </form>
-
-
           </div>
         </div>
 
+        <form action="/record-progress/end-session/v1" method="post" novalidate>
+          <div class="govuk-button-group">
+            <button type="submit" class="govuk-button" data-module="govuk-button" id="buttonAbsentSix">
+              Submit information
+            </button>
+          </div>
+        </form>
+
         <h1 class="govuk-heading-m">6 people scheduled on this session</h1>
 
-        <!-- PERSON ONE - mark a working and finished work-->
+        <!-- PERSON ONE - mark as working and finished work-->
         <div class="govuk-summary-card" id="personOne">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              Alex Boyle<br style="font-size: 16px;"><br style="font-size: 16px;">
-            <!-- status tags for person one - data from buttons below -->
-            {% if data.personOneStatus=="CompletedScheduledHours" %}
-              <strong class="govuk-tag govuk-tag--blue">
-                Session complete
-              </strong>
-            {% elif data.personOneStatus=="working" %}
-              <strong class="govuk-tag govuk-tag--green">
-                Active
-              </strong>
-            {% else %}
-              <strong class="govuk-tag govuk-tag--grey">
-                Scheduled
-              </strong>
-            {% endif %}
+              <span id="name">Alex Boyle</span><br>
+              {% if data.personOneStatus=="CompletedScheduledHours" %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--blue">
+                  Session complete
+                </strong>
+              {% elif data.personOneStatus=="working" %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--green">
+                  Active
+                </strong>
+              {% else %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--grey">
+                  Scheduled
+                </strong>
+              {% endif %}
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                  <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">View<span class="govuk-visually-hidden"> start time</span></a>
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v3/person-1">View<span class="govuk-visually-hidden"> person details</span></a>
               </li>
             </ul>
           </div>
@@ -74,7 +72,7 @@
               </h2>
               <ul class="govuk-summary-card__actions" id="status-tag">
                 <li class="govuk-summary-card__action">
-                  <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
+                  <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start time</span></a>
                 </li>
               </ul>
             </div>
@@ -96,125 +94,52 @@
                 <span style="font-weight: 400;">Scheduled start time: </span> 9:00<br>
                 <span style="font-weight: 400;">Scheduled finish time:</span> 16:00
               </h2>
-              <ul class="govuk-summary-card__actions" id="status-tag">
-                <li class="govuk-summary-card__action">
-                  <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
-                </li>
-              </ul>
             </div>
           {% endif %}
         </div>
 
-        <!-- Person two -->
+        <!-- Person two - mark as working -->
         <div class="govuk-summary-card" id="personTwo">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
               Prasad Ahmed<br>
-              <span style="font-weight: 400;">098765546</span>
+              {% if data.personTwoStatus=="working" %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--green">
+                  Active
+                </strong>
+              {% else %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--grey">
+                  Scheduled
+                </strong>
+              {% endif %}
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                {% if data.personTwoStatus=="working" %}
-                  <strong class="govuk-tag govuk-tag--green">
-                    Active
-                  </strong>
-                {% else %}
-                  <strong class="govuk-tag govuk-tag--grey">
-                    Scheduled
-                  </strong>
-                {% endif %}
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v3/person-2">View<span class="govuk-visually-hidden"> person details</span></a>
               </li>
             </ul>
-          </div>
-          <div class="govuk-summary-card__content">
-
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  View details
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Date of birth
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      6 May 1990
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Hours completed
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      15 of 180 hours
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Risks
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      None
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Coordinator notes
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      Anxiety issues, sensory issues - can't wear hi-vis
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-
-            <form action="/record-progress/check-in-individuals/v2/person-2" method="post" novalidate>
-
-              <div class="govuk-button-group">
-
-                {% if data.personTwoStatus=="working" %}
-
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours" style="background: #505a5f;">
-                    Finish session
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    Send home
-                  </button>
-
-                {% else %}
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personTwoStatus" value="working" style="background: #505a5f;">
-                    Working
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    Absent
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
-                    Stand down
-                  </button>
-                {% endif %}
-
-              </div>
-
-            </form>
           </div>
           {% if data.personTwoStatus=="working" %}
-          <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
-            <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Started work at</span> {{ data['startTimePersonTwo'] }}
-            </h2>
-            <ul class="govuk-summary-card__actions" id="status-tag">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
-              </li>
-            </ul>
-          </div>
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Actual start time:</span> {{ data['startTimePersonTwo'] }}<br>
+                <span style="font-weight: 400;">Scheduled finish time:</span> {{ data['startTimePersonTwo'] }}
+              </h2>
+              <ul class="govuk-summary-card__actions" id="status-tag">
+                <li class="govuk-summary-card__action">
+                  <!--
+                  <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start time</span></a>
+                  -->
+                </li>
+              </ul>
+            </div>
+          {% else %}
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Scheduled start time:</span> 9:00<br>
+                <span style="font-weight: 400;">Scheduled finish time:</span> 16:00
+              </h2>
+            </div>
           {% endif %}
         </div>
 
@@ -223,109 +148,40 @@
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
               Connor Powell<br>
-              <span style="font-weight: 400;">0837648723</span>
+              {% if data.personThreeStatus=="absent" %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--yellow">
+                  Absent
+                </strong>
+              {% else %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--grey">
+                  Scheduled
+                </strong>
+              {% endif %}
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                {% if data.personThreeStatus=="absent" %}
-                  <strong class="govuk-tag govuk-tag--yellow">
-                    Absent
-                  </strong>
-                {% else %}
-                  <strong class="govuk-tag govuk-tag--grey">
-                    Scheduled
-                  </strong>
-                {% endif %}
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v3/person-3">View<span class="govuk-visually-hidden"> person details</span></a>
               </li>
             </ul>
-          </div>
-          <div class="govuk-summary-card__content">
-
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  View details
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Date of birth
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      19 November 1963
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Hours completed
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      20 of 240 hours
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Risks
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      None
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Coordinator notes
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      Alcohol issues, anger issues
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-
-            <form action="/record-progress/check-in-individuals/v2/person-3" method="post" novalidate>
-
-              <div class="govuk-button-group">
-
-                {% if data.personThreeStatus=="absent" %}
-                  <!--
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    Send home
-                  </button>
-                  -->
-
-                {% else %}
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" style="background: #505a5f;">
-                    Working
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="personThreeStatus" value="absent">
-                    Absent
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
-                    Stand down
-                  </button>
-                {% endif %}
-
-              </div>
-
-            </form>
-
           </div>
           {% if data.personThreeStatus=="absent" %}
-          <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
-            <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Absent from</span> {{ data['startTimePersonThree'] }}
-            </h2>
-            <ul class="govuk-summary-card__actions" id="status-tag">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
-              </li>
-            </ul>
-          </div>
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Absent from: </span> {{ data['startTimePersonThree'] }}
+              </h2>
+              <ul class="govuk-summary-card__actions" id="status-tag">
+                <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
+                </li>
+              </ul>
+            </div>
+          {% else %}
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Scheduled start time:</span> 9:00<br>
+                <span style="font-weight: 400;">Scheduled finish time:</span> 16:00
+              </h2>
+            </div>
           {% endif %}
         </div>
 
@@ -333,263 +189,85 @@
         <div class="govuk-summary-card" id="personFour">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-               Scott Green<br>
-              <span style="font-weight: 400;">874578475</span>
-            </h2>
-            <ul class="govuk-summary-card__actions" id="status-tag">
-              <li class="govuk-summary-card__action">
+                Scott Green<br>
                 {% if data.personFourStatus=="sentHomeEarly" %}
-                  <strong class="govuk-tag govuk-tag--orange">
+                  <strong id="status-tag" class="govuk-tag govuk-tag--orange">
                     Finished early
                   </strong>
                 {% elif data.personFourStatus=="working" %}
-                  <strong class="govuk-tag govuk-tag--green">
+                  <strong id="status-tag" class="govuk-tag govuk-tag--green">
                     Active
                   </strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--grey">
+                  <strong id="status-tag" class="govuk-tag govuk-tag--grey">
                     Scheduled
                   </strong>
                 {% endif %}
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v3/person-4">View<span class="govuk-visually-hidden"> person details</span></a>
               </li>
             </ul>
           </div>
-          <div class="govuk-summary-card__content">
-
-
-            {% if data.personFourStatus=="sentHomeEarly" %}
-              <p>Why sent home early: <span style="font-weight: 700;">{{ data['sentHomeEarlyReason'] }}</span><br>
-                Detail: <span style="font-weight: 700;">{{ data['moreDetailPersonFour'] }}</span></p>
-            {% else %}
-              <!-- NOTHING -->
-            {% endif %}            
-
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  View details
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Date of birth
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      8 September 1988
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Hours completed
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      170 of 180 hours
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Risks
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      RSO
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Coordinator notes
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      Do not stand down
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-
           {% if data.personFourStatus=="sentHomeEarly" %}
-
-
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Actual start time:</span> {{ data['startTimePersonFour'] }}<br>
+                <span style="font-weight: 400;">Left early at:</span> {{ data['sendHomeEarlyTimePersonFour'] }}
+              </h2>
+            </div>
           {% elif data.personFourStatus=="working" %}
-
-            <form action="/record-progress/send-home-early/v1/confirm-time" method="post" novalidate>
-
-              <div class="govuk-button-group">
-
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours" style="background: #505a5f;">
-                    Finish session
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="personFourStatus" value="sentHomeEarly">
-                    Send home
-                  </button>
-              </div>
-
-            </form>
-
-
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Actual start time:</span> {{ data['startTimePersonFour'] }}<br>
+                <span style="font-weight: 400;">Scheduled finish time:</span>
+              </h2>
+            </div>
           {% else %}
-
-            <form action="/record-progress/check-in-individuals/v2/person-4" method="post" novalidate>
-
-              <div class="govuk-button-group">
-
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working" style="background: #505a5f;">
-                    Working
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    Absent
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
-                    Stand down
-                  </button>
-                
-
-              </div>
-
-            </form>
-
-          {% endif %}
-
-          </div>
-          {% if data.personFourStatus=="sentHomeEarly" %}
-          <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
-            <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Logged out early at</span> {{ data['sendHomeEarlyTimePersonFour'] }}
-            </h2>
-            <ul class="govuk-summary-card__actions" id="status-tag">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
-              </li>
-            </ul>
-          </div>
-          {% elif data.personFourStatus=="working" %}
-          <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
-            <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Started work at</span> {{ data['startTimePersonFour'] }}
-            </h2>
-            <ul class="govuk-summary-card__actions" id="status-tag">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
-              </li>
-            </ul>
-          </div>
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Scheduled start time:</span> 9:00<br>
+                <span style="font-weight: 400;">Scheduled finish time:</span> 16:00
+              </h2>
+            </div>
           {% endif %}
         </div>
 
-        <!-- Person five -->
+        <!-- Person five - Stood down -->
         <div class="govuk-summary-card" id="personFive">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
               Zachary Herbert<br>
-              <span style="font-weight: 400;">09636363</span>
+              {% if data.personFiveStatus=="stoodDown" %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--pink">
+                  Stood down
+                </strong>
+              {% else %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--grey">
+                  Scheduled
+                </strong>
+              {% endif %}
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                {% if data.personFiveStatus=="stoodDown" %}
-                  <strong class="govuk-tag govuk-tag--pink">
-                    Stood down
-                  </strong>
-                {% else %}
-                  <strong class="govuk-tag govuk-tag--grey">
-                    Scheduled
-                  </strong>
-                {% endif %}
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v3/person-5">View<span class="govuk-visually-hidden"> person details</span></a>
               </li>
             </ul>
-          </div>
-          <div class="govuk-summary-card__content">
-
-            {% if data.personFiveStatus=="stoodDown" %}
-              <p>Stand down reason: <span style="font-weight: 700;">{{ data['stoodDownReason'] }}</span><br>
-              Detail of stand down: <span style="font-weight: 700;">{{ data['moreDetailPersonFive'] }}</span></p>
-            {% else %}
-              <!-- NOTHING -->
-            {% endif %}
-
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  View details
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Date of birth
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      9 January 1976
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Hours completed
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      170 of 180 hours
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Risks
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      RSO
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Coordinator notes
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      Substance issues, anger issues
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-
-            <form action="/record-progress/check-in-individuals/v2/person-5" method="post" novalidate>
-
-              <div class="govuk-button-group">
-
-                {% if data.personFiveStatus=="stoodDown" %}
-
-                {% else %}
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working" style="background: #505a5f;">
-                    Working
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    Absent
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive" name="personFiveStatus" value="stoodDown">
-                    Stand down
-                  </button>
-                {% endif %}
-
-              </div>
-
-            </form>
-
           </div>
           {% if data.personFiveStatus=="stoodDown" %}
-          <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
-            <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Stood down at</span> {{ data['startTimePersonFive'] }}
-            </h2>
-            <ul class="govuk-summary-card__actions" id="status-tag">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
-              </li>
-            </ul>
-          </div>
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Did not work start: </span> {{ data['startTimePersonFive'] }}
+              </h2>
+            </div>
+          {% else %}
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Scheduled start time:</span> 9:00<br>
+                <span style="font-weight: 400;">Scheduled finish time:</span> 16:00
+              </h2>
+            </div>
           {% endif %}
         </div>
 
@@ -598,112 +276,36 @@
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
               Daniel Storey<br> 
-              <span style="font-weight: 400;">874578475</span>
-            </h2>
-            <ul class="govuk-summary-card__actions" id="status-tag">
-              <li class="govuk-summary-card__action">
                 {% if data.personSixStatus=="working" %}
-                  <strong class="govuk-tag govuk-tag--green">
+                  <strong id="status-tag" class="govuk-tag govuk-tag--green">
                     Active
                   </strong>
                 {% else %}
-                  <strong class="govuk-tag govuk-tag--grey">
+                  <strong id="status-tag" class="govuk-tag govuk-tag--grey">
                     Scheduled
                   </strong>
                 {% endif %}
-              </li>
-            </ul>
-          </div>
-          <div class="govuk-summary-card__content">
-
-            <details class="govuk-details">
-              <summary class="govuk-details__summary">
-                <span class="govuk-details__summary-text">
-                  View details
-                </span>
-              </summary>
-              <div class="govuk-details__text">
-                <dl class="govuk-summary-list">
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Date of birth
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      8 September 1988
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Hours completed
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      170 of 180 hours
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Risks
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      RSO
-                    </dd>
-                  </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Coordinator notes
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      Do not stand down
-                    </dd>
-                  </div>
-                </dl>
-              </div>
-            </details>
-
-            <form action="/record-progress/check-in-individuals/v2/person-6" method="post" novalidate>
-
-              <div class="govuk-button-group">
-
-                {% if data.personSixStatus=="working" %}
-
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours" style="background: #505a5f;">
-                    Finish session
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" name="status" value="working">
-                    Send home
-                  </button>
-
-                {% else %}
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personSixStatus" value="working" style="background: #505a5f;">
-                    Working
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    Absent
-                  </button>
-
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonSecondaryFive">
-                    Stand down
-                  </button>
-                {% endif %}
-
-              </div>
-
-            </form>
-
-          </div>
-          {% if data.personSixStatus=="working" %}
-          <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
-            <h2 class="govuk-summary-card__title">
-              <span style="font-weight: 400;">Started work at</span> {{ data['startTimePersonSix'] }}
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="/record-progress/check-in-individuals/v2/person-1">Edit<span class="govuk-visually-hidden"> start time</span></a>
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v3/person-6">View<span class="govuk-visually-hidden"> person details</span></a>
               </li>
             </ul>
           </div>
+          {% if data.personSixStatus=="working" %}
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Actual start time:</span> {{ data['startTimePersonSix'] }}<br>
+                <span style="font-weight: 400;">Scheduled finish time:</span> 16:00
+              </h2>
+            </div>
+          {% else %}
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Actual start time:</span> 9:00<br>
+                <span style="font-weight: 400;">Scheduled finish time:</span> 16:00
+              </h2>
+            </div>
           {% endif %}
         </div>
 
