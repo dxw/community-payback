@@ -1,0 +1,111 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">
+          CRN: 46324392
+        </span>
+        <h1 class="govuk-heading-l">Zachary Herbert</h1>
+
+            <!-- BUTTONS to change status for PERSON -->
+
+            <!-- Buttons for when someone's status is marked as WORKING -->
+            {% if data.personFiveStatus=="stoodDown" %}
+
+
+            <!-- DEFAULT buttons for when default status of SCHEDULED -->
+            {% else %}
+
+              <form action="/record-progress/check-in-individuals/v3/person-5/stood-down/time" method="post" novalidate>
+
+                <div class="govuk-button-group">
+
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFiveStatus" value="stoodDown">
+                    Arrived
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="other" value="stoodDown">
+                    Not arrived
+                  </button>
+
+              </div>
+
+            </form>
+
+          {% endif %}
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">
+                Person details
+              </h2>
+            </div>
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Session status
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if data.personFiveStatus=="stoodDown" %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--purple">
+                        Unable to work
+                      </strong>
+                    {% else %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--grey">
+                        Scheduled
+                      </strong>
+                    {% endif %}
+                  </dd>
+                </div>
+
+
+                {% if data.personFiveStatus=="stoodDown" %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Did not work start at:
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['startTimePersonFive'] }}
+                    </dd>
+                  </div>
+                {% else %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Scheduled start time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      9:00
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Scheduled finish time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      16:00
+                    </dd>
+                  </div>
+                {% endif %}
+              </dl>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+{% endblock %}

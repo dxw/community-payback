@@ -1,0 +1,33 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Connor Powell has been recorded as absent
+        </h1>
+      </div>
+      <br>
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p class="govuk-body">
+        Connor Powell's probation practioner will be informed about this absence.
+      </p>
+      <p>
+        <br>
+        <a href="/record-progress/session-details/v4">
+          Return to session page
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}

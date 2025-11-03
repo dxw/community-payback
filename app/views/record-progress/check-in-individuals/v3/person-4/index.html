@@ -17,30 +17,27 @@
       <div class="govuk-grid-column-two-thirds">
 
         <span class="govuk-caption-l">
-          CRN: 42924323
+          CRN: 45324392
         </span>
-        <h1 class="govuk-heading-l">Alex Boyle</h1>
-
+        <h1 class="govuk-heading-l">Scott Green</h1>
 
             <!-- BUTTONS to change status for PERSON -->
 
-            <!-- NO BUTTONS as there's no call-to-action when someone's marked as 'Session complete' -->
-            {% if data.personOneStatus=="CompletedScheduledHours" %}
-
-              
             <!-- Buttons for when someone's status is marked as WORKING -->
-            {% elif data.personOneStatus=="working" %}
+            {% if data.personFourStatus=="leftEarly" %}
 
+            <!-- Buttons for when someone's status is marked as WORKING -->
+            {% elif data.personFourStatus=="working" %}
 
-              <form action="/record-progress/check-in-individuals/v3/person-1/finish-work/time" method="post" novalidate>
+              <form action="/record-progress/check-in-individuals/v3/person-4/left-early/time" method="post" novalidate>
 
                 <div class="govuk-button-group">
 
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="other" value="CompletedScheduledHours">
                     Finish session
                   </button>
 
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentOne" name="status" value="working">
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentOne" name="personFourStatus" value="leftEarly">
                     Left site early
                   </button>
 
@@ -51,11 +48,11 @@
             <!-- DEFAULT buttons for when default status of SCHEDULED -->
             {% else %}
 
-              <form action="/record-progress/check-in-individuals/v3/person-1/start-work/time" method="post" novalidate>
+              <form action="/record-progress/check-in-individuals/v3/person-4/start-work/time" method="post" novalidate>
 
                 <div class="govuk-button-group">
 
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="working">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personFourStatus" value="working">
                     Arrived
                   </button>
 
@@ -82,11 +79,11 @@
                     Session status
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {% if data.personOneStatus=="CompletedScheduledHours" %}
-                      <strong id="status-tag" class="govuk-tag govuk-tag--blue">
-                        Session complete
+                    {% if data.personFourStatus=="leftEarly" %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--orange">
+                        Left site early
                       </strong>
-                    {% elif data.personOneStatus=="working" %}
+                    {% elif data.personFourStatus=="working" %}
                       <strong id="status-tag" class="govuk-tag govuk-tag--green">
                         Active
                       </strong>
@@ -98,36 +95,35 @@
                   </dd>
                 </div>
 
-                <!-- TIME log for when someone complete's a session -->
-                {% if data.personOneStatus=="CompletedScheduledHours" %}
+                {% if data.personFourStatus=="leftEarly" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Actual start time
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['startTimePersonOne'] }}
+                      {{ data['startTimePersonFour'] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Actual finish time
+                      Left site early at:
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['finishTimePersonOne'] }}
+                      {{ data['sendHomeEarlyTimePersonFour'] }}
                     </dd>
                   </div>
-                {% elif data.personOneStatus=="working" %}
+                {% elif data.personFourStatus=="working" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Actual start time
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['startTimePersonOne'] }}
+                      {{ data['startTimePersonFour'] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
-                      Scheduled finish time
+                      Scheduled finish time:
                     </dt>
                     <dd class="govuk-summary-list__value">
                       16:00

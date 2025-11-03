@@ -1,0 +1,176 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Why is Zachary Herbert unable to work today?
+      </h1>
+
+      <form class="form" action="/record-progress/check-in-individuals/v3/person-5/stood-down/confirm" method="post">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <div id="contact-hint" class="govuk-hint">
+                Select one option
+              </div>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-2" name="stoodDownReason" type="radio" value="Currently suspended" data-aria-controls="conditional-contact-2">
+                  <label class="govuk-label govuk-radios__label" for="contact-2">
+                    No space left on the session
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetailPersonFive" rows="3" aria-describedby="more-detail-hint"></textarea>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+                        <label class="govuk-label govuk-checkboxes__label" for="nationality">
+                          Sensitive information
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-3" name="stoodDownReason" type="radio" value="Wrong risk status for project" data-aria-controls="conditional-contact-3">
+                  <label class="govuk-label govuk-radios__label" for="contact-3">
+                    Currently suspended
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-3">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetailPersonFive" rows="3" aria-describedby="more-detail-hint"></textarea>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+                        <label class="govuk-label govuk-checkboxes__label" for="nationality">
+                          Sensitive information
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-4" name="stoodDownReason" type="radio" value="text" data-aria-controls="conditional-contact-4">
+                  <label class="govuk-label govuk-radios__label" for="contact-4">
+                    Wrong risk status for project
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-4">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetailPersonFive" rows="3" aria-describedby="more-detail-hint"></textarea>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+                        <label class="govuk-label govuk-checkboxes__label" for="nationality">
+                          Sensitive information
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-5" name="stoodDownReason" type="radio" value="text" data-aria-controls="conditional-contact-5">
+                  <label class="govuk-label govuk-radios__label" for="contact-5">
+                    Forgotten boot/PPE
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-5">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetailPersonFive" rows="3" aria-describedby="more-detail-hint"></textarea>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+                        <label class="govuk-label govuk-checkboxes__label" for="nationality">
+                          Sensitive information
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-6" name="stoodDownReason" type="radio" value="text" data-aria-controls="conditional-contact-6">
+                  <label class="govuk-label govuk-radios__label" for="contact-6">
+                    Under the influence
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-6">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetailPersonFive" rows="3" aria-describedby="more-detail-hint"></textarea>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+                        <label class="govuk-label govuk-checkboxes__label" for="nationality">
+                          Sensitive information
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-7" name="stoodDownReason" type="radio" value="text" data-aria-controls="conditional-contact-7">
+                  <label class="govuk-label govuk-radios__label" for="contact-7">
+                    Unwell
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-7">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-text">
+                      Can you provide more detail?
+                    </label>
+                    <textarea class="govuk-textarea" id="more-detail" name="moreDetailPersonFive" rows="3" aria-describedby="more-detail-hint"></textarea>
+                    <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                      <div class="govuk-checkboxes__item">
+                        <input class="govuk-checkboxes__input" id="nationality" name="nationality" type="checkbox" value="british" aria-describedby="nationality-item-hint">
+                        <label class="govuk-label govuk-checkboxes__label" for="nationality">
+                          Sensitive information
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

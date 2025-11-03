@@ -1,0 +1,113 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">
+          CRN: 47524393
+        </span>
+        <h1 class="govuk-heading-l">Connor Powell</h1>
+
+
+            <!-- BUTTONS to change status for PERSON -->
+
+            <!-- Buttons for when someone's status is marked as WORKING -->
+            {% if data.personThreeStatus=="working" %}
+
+
+              <!-- EMPTY -->
+
+            <!-- DEFAULT buttons for when default status of SCHEDULED -->
+            {% else %}
+
+              <form action="/record-progress/check-in-individuals/v3/person-3/absent/time" method="post" novalidate>
+
+                <div class="govuk-button-group">
+
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="other" value="working">
+                    Arrived
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="personThreeStatus" value="absent">
+                    Not arrived
+                  </button>
+
+              </div>
+
+            </form>
+
+          {% endif %}
+
+          <div class="govuk-summary-card">
+            <div class="govuk-summary-card__title-wrapper">
+              <h2 class="govuk-summary-card__title">
+                Person details
+              </h2>
+            </div>
+            <div class="govuk-summary-card__content">
+              <dl class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Session status
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    {% if data.personThreeStatus=="absent" %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--yellow">
+                        Absent
+                      </strong>
+                    {% else %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--grey">
+                        Scheduled
+                      </strong>
+                    {% endif %}
+                  </dd>
+                </div>
+
+                {% if data.personThreeStatus=="absent" %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Absent from
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['startTimePersonThree'] }}
+                    </dd>
+                  </div>
+                {% else %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Scheduled start time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      9:00
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Scheduled finish time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      16:00
+                    </dd>
+                  </div>
+                {% endif %}
+              </dl>
+            </div>
+          </div>
+
+      </div>
+    </div>
+
+{% endblock %}
