@@ -34,7 +34,7 @@
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
               <span id="name">Alex Boyle</span><br>
-              {% if data.personOneStatus=="CompletedScheduledHours" %}
+              {% if data.personOneStatus=="finishedSession" %}
                 <strong id="status-tag" class="govuk-tag govuk-tag--blue">
                   Session complete
                 </strong>
@@ -56,7 +56,7 @@
           </div>
 
           <!-- TIME log for when someone complete's a session -->
-          {% if data.personOneStatus=="CompletedScheduledHours" %}
+          {% if data.personOneStatus=="finishedSession" %}
             <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
               <h2 class="govuk-summary-card__title">
                 <span style="font-weight: 400;">Actual start time: </span> {{ data['startTimePersonOne'] }}<br>
@@ -85,7 +85,12 @@
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
               Prasad Ahmed<br>
-              {% if data.personTwoStatus=="working" %}
+
+              {% if data.personTwoStatus=="finishedSession" %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--blue">
+                  Session complete
+                </strong>
+              {% elif data.personTwoStatus=="working" %}
                 <strong id="status-tag" class="govuk-tag govuk-tag--green">
                   Working
                 </strong>
@@ -101,7 +106,14 @@
               </li>
             </ul>
           </div>
-          {% if data.personTwoStatus=="working" %}
+          {% if data.personTwoStatus=="finishedSession" %}
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Actual start time: </span> {{ data['startTimePersonTwo'] }}<br>
+                <span style="font-weight: 400;">Actual finish time:</span> {{ data['finishTimePersonTwo'] }}
+              </h2>
+            </div>
+          {% elif data.personTwoStatus=="working" %}
             <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
               <h2 class="govuk-summary-card__title">
                 <span style="font-weight: 400;">Actual start time:</span> {{ data['startTimePersonTwo'] }}<br>
@@ -249,19 +261,24 @@
         </div>
 
         <!-- Person six -->
-        <div class="govuk-summary-card" id="personSix">
+        <div class="govuk-summary-card" id="personTwo">
           <div class="govuk-summary-card__title-wrapper">
             <h2 class="govuk-summary-card__title">
-              Daniel Storey<br> 
-                {% if data.personSixStatus=="working" %}
-                  <strong id="status-tag" class="govuk-tag govuk-tag--green">
-                    Working
-                  </strong>
-                {% else %}
-                  <strong id="status-tag" class="govuk-tag govuk-tag--grey">
-                    Scheduled
-                  </strong>
-                {% endif %}
+              Daniel Storey<br>
+
+              {% if data.personSixStatus=="finishedSession" %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--blue">
+                  Session complete
+                </strong>
+              {% elif data.personSixStatus=="working" %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--green">
+                  Working
+                </strong>
+              {% else %}
+                <strong id="status-tag" class="govuk-tag govuk-tag--grey">
+                  Scheduled
+                </strong>
+              {% endif %}
             </h2>
             <ul class="govuk-summary-card__actions" id="status-tag">
               <li class="govuk-summary-card__action">
@@ -269,23 +286,36 @@
               </li>
             </ul>
           </div>
-          {% if data.personSixStatus=="working" %}
+          {% if data.personSixStatus=="finishedSession" %}
+            <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
+              <h2 class="govuk-summary-card__title">
+                <span style="font-weight: 400;">Actual start time: </span> {{ data['startTimePersonSix'] }}<br>
+                <span style="font-weight: 400;">Actual finish time:</span> {{ data['finishTimePersonSix'] }}
+              </h2>
+            </div>
+          {% elif data.personSixStatus=="working" %}
             <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
               <h2 class="govuk-summary-card__title">
                 <span style="font-weight: 400;">Actual start time:</span> {{ data['startTimePersonSix'] }}<br>
                 <span style="font-weight: 400;">Scheduled finish time:</span> 16:00
               </h2>
+              <ul class="govuk-summary-card__actions" id="status-tag">
+                <li class="govuk-summary-card__action">
+                  <!--
+                  <a class="govuk-link" href="#">Edit<span class="govuk-visually-hidden"> start time</span></a>
+                  -->
+                </li>
+              </ul>
             </div>
           {% else %}
             <div class="govuk-summary-card__title-wrapper" style="border-top: 1px solid #b1b4b6; background: #fff;">
               <h2 class="govuk-summary-card__title">
-                <span style="font-weight: 400;">Actual start time:</span> 9:00<br>
+                <span style="font-weight: 400;">Scheduled start time:</span> 9:00<br>
                 <span style="font-weight: 400;">Scheduled finish time:</span> 16:00
               </h2>
             </div>
           {% endif %}
         </div>
-
         <h2 class="govuk-heading-m">Now send the session attendance record</h2>
         <p class="govuk-body">By submitting this attendance information you are confirming that, to the best of your knowledge, the details you are providing are correct.</p>
         <form action="/record-progress/end-session/v1/confirm" method="post" novalidate>

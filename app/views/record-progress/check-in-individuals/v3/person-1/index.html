@@ -25,7 +25,7 @@
             <!-- BUTTONS to change status for PERSON -->
 
             <!-- NO BUTTONS as there's no call-to-action when someone's marked as 'Session complete' -->
-            {% if data.personOneStatus=="CompletedScheduledHours" %}
+            {% if data.personOneStatus=="finishedSession" %}
 
               
             <!-- Buttons for when someone's status is marked as WORKING -->
@@ -36,7 +36,7 @@
 
                 <div class="govuk-button-group">
 
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="CompletedScheduledHours">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="finishedSession">
                     Finish session
                   </button>
 
@@ -82,7 +82,7 @@
                     Session status
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {% if data.personOneStatus=="CompletedScheduledHours" %}
+                    {% if data.personOneStatus=="finishedSession" %}
                       <strong id="status-tag" class="govuk-tag govuk-tag--blue">
                         Session complete
                       </strong>
@@ -99,7 +99,7 @@
                 </div>
 
                 <!-- TIME log for when someone complete's a session -->
-                {% if data.personOneStatus=="CompletedScheduledHours" %}
+                {% if data.personOneStatus=="finishedSession" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Actual start time

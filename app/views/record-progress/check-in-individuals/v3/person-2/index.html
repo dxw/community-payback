@@ -21,18 +21,22 @@
         </span>
         <h1 class="govuk-heading-l">Prasad Ahmed</h1>
 
-
             <!-- BUTTONS to change status for PERSON -->
 
+            <!-- Buttons for when someone's status is marked as FINISHED -->
+            {% if data.personTwoStatus=="finishedSession" %}
+
+              <!--FINISH SESSION N-->
+
             <!-- Buttons for when someone's status is marked as WORKING -->
-            {% if data.personTwoStatus=="working" %}
+            {% elif data.personTwoStatus=="working" %}
 
 
               <form action="/record-progress/check-in-individuals/v3/person-2/finish-work/time" method="post" novalidate>
 
                 <div class="govuk-button-group">
 
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personTwoStatus" value="CompletedScheduledHours">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personTwoStatus" value="finishedSession">
                     Finish session
                   </button>
 
@@ -78,9 +82,13 @@
                     Session status
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {% if data.personTwoStatus=="working" %}
+                    {% if data.personTwoStatus=="finishedSession" %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--blue">
+                        Session complete
+                      </strong>
+                    {% elif data.personTwoStatus=="working" %}
                       <strong id="status-tag" class="govuk-tag govuk-tag--green">
-                        Active
+                        Working
                       </strong>
                     {% else %}
                       <strong id="status-tag" class="govuk-tag govuk-tag--grey">

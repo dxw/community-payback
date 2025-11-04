@@ -24,15 +24,18 @@
 
             <!-- BUTTONS to change status for PERSON -->
 
+            <!-- Buttons for when someone's status is marked as FINISh -->
+            {% if data.personSixStatus=="finishedSession" %}
+
             <!-- Buttons for when someone's status is marked as WORKING -->
-            {% if data.personSixStatus=="working" %}
+            {% elif data.personSixStatus=="working" %}
 
 
-              <form action="/record-progress/check-in-individuals/v3/person-2/finish-work/time" method="post" novalidate>
+              <form action="/record-progress/check-in-individuals/v3/person-6/finish-work/time" method="post" novalidate>
 
                 <div class="govuk-button-group">
 
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personSixStatus" value="working">
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personSixStatus" value="finishedSession">
                     Finish session
                   </button>
 
@@ -78,9 +81,13 @@
                     Session status
                   </dt>
                   <dd class="govuk-summary-list__value">
-                    {% if data.personSixStatus=="working" %}
+                    {% if data.personSixStatus=="finishedSession" %}
+                      <strong id="status-tag" class="govuk-tag govuk-tag--blue">
+                        Session complete
+                      </strong>
+                    {% elif data.personSixStatus=="working" %}
                       <strong id="status-tag" class="govuk-tag govuk-tag--green">
-                        Active
+                        Working
                       </strong>
                     {% else %}
                       <strong id="status-tag" class="govuk-tag govuk-tag--grey">
@@ -89,14 +96,30 @@
                     {% endif %}
                   </dd>
                 </div>
-
-                {% if data.personSixStatus=="working" %}
+                {% if data.personSixStatus=="finishedSession" %}
                   <div class="govuk-summary-list__row">
                     <dt class="govuk-summary-list__key">
                       Actual start time
                     </dt>
                     <dd class="govuk-summary-list__value">
-                      {{ data['startTimePersonTwo'] }}
+                      {{ data['startTimePersonSix'] }}
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Actual finish time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['finishTimePersonSix'] }}
+                    </dd>
+                  </div>
+                {% elif data.personSixStatus=="working" %}
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Actual start time
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      {{ data['startTimePersonSix'] }}
                     </dd>
                   </div>
                   <div class="govuk-summary-list__row">
