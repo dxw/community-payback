@@ -1,0 +1,134 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row" id="top">
+      <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">
+          CRN: 42924323
+        </span>
+        <h1 class="govuk-heading-l">Alex Boyle</h1>
+
+              <form action="/travel-time/adjustment/v1" method="post" novalidate>
+
+                <div class="govuk-button-group">
+
+                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="working">
+                    Adjust for trave time
+                  </button>
+
+                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                    Not eligible for travel time
+                  </button>
+
+                </div>
+
+              </form>
+
+        <!-- session details -->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Session details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Session status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   26 September 2026
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Outcome saved to nDelius
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Attended - complied
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Actual start time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  9:17
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Actual finish time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  16:05
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Scheduled start time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  9:00
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Scheduled finish time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  16:00
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <!-- pick-up details -->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Pick-up details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Location
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Post Office, Lower Midford, SX22 3DL
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  8:30
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Travel duration
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  30 minutes
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,97 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row" id="top">
+      <div class="govuk-grid-column-full-wid">
+        <h1 class="govuk-heading-l">Adjust appointments for travel time</h1>
+
+        <p>
+          - <a href="#" style="font-weight: 700;">Today</a><br>
+          - <a href="#">Yesterday</a>
+        </p>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="sort">
+            Your team
+          </label>
+          <select class="govuk-select" id="sort" name="sort">
+            <option value="published">Recently published</option>
+            <option value="updated" selected>Ashford</option>
+            <option value="views">Most views</option>
+            <option value="comments">Most comments</option>
+          </select>
+        </div>
+
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header">Name</th>
+      <th scope="col" class="govuk-table__header">CRN</th>
+      <th scope="col" class="govuk-table__header">Date</th>
+      <th scope="col" class="govuk-table__header">Appointment type</th>
+      <th scope="col" class="govuk-table__header">Action</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Alex Boyle</th>
+      <td class="govuk-table__cell">42924323</td>
+      <td class="govuk-table__cell">26 Septmber 2026</td>
+      <td class="govuk-table__cell">Group supervision</td>
+      <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Prasad Ahmed</th>
+      <td class="govuk-table__cell">49324332</td>
+      <td class="govuk-table__cell">26 Septmber 2026</td>
+      <td class="govuk-table__cell">Group supervision</td>
+      <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Connor Powell</th>
+      <td class="govuk-table__cell">47524393</td>
+      <td class="govuk-table__cell">26 Septmber 2026</td>
+      <td class="govuk-table__cell">Group supervision</td>
+      <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Scott Green</th>
+      <td class="govuk-table__cell">45324392</td>
+      <td class="govuk-table__cell">26 Septmber 2026</td>
+      <td class="govuk-table__cell">Group supervision</td>
+      <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Zachary Herbert</th>
+      <td class="govuk-table__cell">46324392</td>
+      <td class="govuk-table__cell">26 Septmber 2026</td>
+      <td class="govuk-table__cell">Group supervision</td>
+      <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Hannah Mendez</th>
+      <td class="govuk-table__cell">47844323</td>
+      <td class="govuk-table__cell">26 Septmber 2026</td>
+      <td class="govuk-table__cell">Host partner</td>
+      <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Barry Clearwater</th>
+      <td class="govuk-table__cell">45924387</td>
+      <td class="govuk-table__cell">26 Septmber 2026</td>
+      <td class="govuk-table__cell">Host partner</td>
+      <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+    </tr>
+  </tbody>
+</table>
+
+
+      </div>
+    </div>
+
+{% endblock %}

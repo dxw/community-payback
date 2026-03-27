@@ -1,0 +1,185 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        Make travel time adjustment
+      </h1>
+
+      <!-- session details -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Session details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Session status
+              </dt>
+              <dd class="govuk-summary-list__value">
+                 26 September 2026
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Outcome saved to nDelius
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Attended - complied
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Actual start time
+              </dt>
+              <dd class="govuk-summary-list__value">
+                9:17
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Actual finish time
+              </dt>
+              <dd class="govuk-summary-list__value">
+                16:05
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Scheduled start time
+              </dt>
+              <dd class="govuk-summary-list__value">
+                9:00
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Scheduled finish time
+              </dt>
+              <dd class="govuk-summary-list__value">
+                16:00
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <!-- pick-up details -->
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Pick-up details
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Location
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Post Office, Lower Midford, SX22 3DL
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Time
+              </dt>
+              <dd class="govuk-summary-list__value">
+                8:30
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Travel duration
+              </dt>
+              <dd class="govuk-summary-list__value">
+                30 minutes
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <h1 class="govuk-heading-m">
+        How much travel time to give this appointment?
+      </h1>
+
+      <form class="form" action="/travel-time/check-answers/v1" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="travelTime-hint">
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="travelTime" name="travelTime" type="radio" value="15 minutes">
+                <label class="govuk-label govuk-radios__label" for="travelTime">
+                  15 minutes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="travelTime-2" name="travelTime" type="radio" value="30 minutes">
+                <label class="govuk-label govuk-radios__label" for="travelTime-2">
+                  30 minutes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="travelTime-3" name="travelTime" type="radio" value="45 minutes">
+                <label class="govuk-label govuk-radios__label" for="travelTime-3">
+                  45 minutes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="travelTime-4" name="travelTime" type="radio" value="60 minutes">
+                <label class="govuk-label govuk-radios__label" for="travelTime-4">
+                  60 minutes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="travelTime-5" name="travelTime" type="radio" value="75 minutes">
+                <label class="govuk-label govuk-radios__label" for="travelTime-3">
+                  75 minutes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="travelTime-6" name="travelTime" type="radio" value="75 minutes">
+                <label class="govuk-label govuk-radios__label" for="travelTime-3">
+                  90 minutes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="travelTime-6" name="travelTime" type="radio" value="75 minutes">
+                <label class="govuk-label govuk-radios__label" for="travelTime-3">
+                  Special circumstance
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

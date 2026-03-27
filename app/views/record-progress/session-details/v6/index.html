@@ -1,0 +1,204 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-l">Session details</h1>
+
+        <!-- summary card for session details: time/date and address -->
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner" style="border-color: #505a5f; outline: none; margin-bottom: 20px;">
+          <div class="govuk-notification-banner__header" style="background: #505a5f;">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title" style="font-weight: 400;">
+              26 June 2026         
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              Group 2
+            </h3>
+            <p class="govuk-body">Arnsford Methodist Church<br>12 Danton Road<br>Arnsford<br> AR7 5BN</p>
+
+          </div>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Pick-up details
+              </h1>
+            </legend>
+            <div class="govuk-radios govuk-radios--small" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changedName" name="changedName" type="radio" value="month" checked="checked">
+                <label class="govuk-label govuk-radios__label" for="changedName">
+                  View
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changedName-2" name="changedName" type="radio" value="year">
+                <label class="govuk-label govuk-radios__label" for="changedName-2">
+                  Hide
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <h1 class="govuk-heading-m">6 people scheduled on this session</h1>
+
+        <!-- PERSON TWO - mark as working and finished work-->
+        <div class="govuk-summary-card" id="personOne">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              <span id="name">Alex Boyle</span><br>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v4/person-1">View and update<span class="govuk-visually-hidden"> details</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key" style="padding-right: 0px;">
+                  <strong id="status-tag" class="govuk-tag govuk-tag--grey">
+                    Scheduled
+                  </strong>
+                </dt>
+              </div>
+            </dl>
+          </div>
+
+          <div class="govuk-summary-card__content" style="border-top: 1px solid #b1b4b6;">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key" style="padding-right: 0px;">
+                  <details class="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        View pick-up details
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                      <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Location
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Post Office, Lower Midford, SX22 3DL
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Time
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            8:30
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Travel duration
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            30 minutes
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </details>
+                </dt>
+              </div>
+            </dl>
+          </div>
+
+
+        </div>
+
+
+        <!-- PERSON TWO - mark as working and finished work-->
+        <div class="govuk-summary-card" id="personOne" style="margin-bottom: 0px;">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              <span id="name">Prasad Ahmed</span><br>
+            </h2>
+            <ul class="govuk-summary-card__actions" id="status-tag">
+              <li class="govuk-summary-card__action">
+                  <a class="govuk-link" href="/record-progress/check-in-individuals/v4/person-2">View and update<span class="govuk-visually-hidden"> details</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key" style="padding-right: 0px;">
+                  <strong id="status-tag" class="govuk-tag govuk-tag--red">
+                    Not expected
+                  </strong>
+                </dt>
+              </div>
+            </dl>
+          </div>
+
+          <div class="govuk-summary-card__content" style="border-top: 1px solid #b1b4b6;">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key" style="padding-right: 0px;">
+                  <details class="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                        View pick-up details
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                      <dl class="govuk-summary-list">
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Location
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            Village, Upper Midford, SX19 4LF
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Time
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            8:15
+                          </dd>
+                        </div>
+                        <div class="govuk-summary-list__row">
+                          <dt class="govuk-summary-list__key">
+                            Travel duration
+                          </dt>
+                          <dd class="govuk-summary-list__value">
+                            45 minutes
+                          </dd>
+                        </div>
+                      </dl>
+                    </div>
+                  </details>
+                </dt>
+              </div>
+            </dl>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}

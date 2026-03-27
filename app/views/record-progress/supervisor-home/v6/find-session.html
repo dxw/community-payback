@@ -1,0 +1,52 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row" id="top">
+      <div class="govuk-grid-column-two-thirds">
+
+
+        <div style="padding: 20px; background: #cecece;">
+          <h1 class="govuk-heading-m">Find a session</h1>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="font-weight: 700;">
+              Team
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="published">Recently published</option>
+              <option value="updated" selected>Ashford</option>
+              <option value="views">Most views</option>
+              <option value="comments">Most comments</option>
+            </select>
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="sort" style="font-weight: 700;">
+              Supervisor
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="published">Recently published</option>
+              <option value="updated" selected>Glen Newmarket</option>
+              <option value="views">Most views</option>
+              <option value="comments">Most comments</option>
+            </select>
+          </div>
+
+            <form action="/record-progress/supervisor-home/v6/sessions-found" method="post" novalidate>
+              <div class="govuk-button-group">
+                <button type="submit" class="govuk-button" data-module="govuk-button" id="buttonPrimaryOne">
+                  View details
+                </button>
+              </div>
+            </form>
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}
