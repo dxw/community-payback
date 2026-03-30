@@ -124,54 +124,31 @@
 
       <form class="form" action="/travel-time/check-answers/v1" method="post">
 
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <div id="passport-issued-hint" class="govuk-hint">
+      For example, 1 hour 15 minutes
+    </div>
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
         <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="travelTime-hint">
-            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="travelTime" name="travelTime" type="radio" value="15 minutes">
-                <label class="govuk-label govuk-radios__label" for="travelTime">
-                  15 minutes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="travelTime-2" name="travelTime" type="radio" value="30 minutes">
-                <label class="govuk-label govuk-radios__label" for="travelTime-2">
-                  30 minutes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="travelTime-3" name="travelTime" type="radio" value="45 minutes">
-                <label class="govuk-label govuk-radios__label" for="travelTime-3">
-                  45 minutes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="travelTime-4" name="travelTime" type="radio" value="60 minutes">
-                <label class="govuk-label govuk-radios__label" for="travelTime-4">
-                  60 minutes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="travelTime-5" name="travelTime" type="radio" value="75 minutes">
-                <label class="govuk-label govuk-radios__label" for="travelTime-3">
-                  75 minutes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="travelTime-6" name="travelTime" type="radio" value="75 minutes">
-                <label class="govuk-label govuk-radios__label" for="travelTime-3">
-                  90 minutes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="travelTime-6" name="travelTime" type="radio" value="75 minutes">
-                <label class="govuk-label govuk-radios__label" for="travelTime-3">
-                  Special circumstance
-                </label>
-              </div>
-            </div>
-          </fieldset>
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Hours
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
         </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Minutes
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
 
         {{ govukButton({
           text: "Continue"

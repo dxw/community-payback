@@ -14,17 +14,23 @@
         </span>
         <h1 class="govuk-heading-l">Alex Boyle</h1>
 
-              <form action="/travel-time/adjustment/v1" method="post" novalidate>
-
                 <div class="govuk-button-group">
 
-                  <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="working">
-                    Adjust for trave time
-                  </button>
+                  <form action="/travel-time/adjustment/v1" method="post" novalidate>
 
-                  <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
-                    Not eligible for travel time
-                  </button>
+                    <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="working">
+                      Adjust for trave time
+                    </button>
+
+                  </form>
+
+                  <form action="/travel-time/not-eligible/v1/check-answers" method="post" novalidate>
+
+                    <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+                      Not eligible for travel time
+                    </button>
+
+                  </form>
 
                 </div>
 
@@ -69,22 +75,6 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                   16:05
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Scheduled start time
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  9:00
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Scheduled finish time
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  16:00
                 </dd>
               </div>
             </dl>
