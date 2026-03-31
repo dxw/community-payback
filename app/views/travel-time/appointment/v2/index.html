@@ -1,0 +1,126 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row" id="top">
+      <div class="govuk-grid-column-two-thirds">
+
+        <span class="govuk-caption-l">
+          CRN: 42924323
+        </span>
+        <h1 class="govuk-heading-l">Alex Boyle</h1>
+
+        <!-- session details -->
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Session details
+            </h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Session status
+                </dt>
+                <dd class="govuk-summary-list__value">
+                   26 September 2026
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Appointment type
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Group supervision
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Contact outcome
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Attended - complied
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Actual start time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  9:17
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Actual finish time
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  16:05
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+
+
+        <!-- time inputs -->
+        <h2 class="govuk-heading-m">
+          How much travel time to give this appointment?
+        </h2>
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+            <div id="passport-issued-hint" class="govuk-hint">
+              For example, 1 hour 15 minutes
+            </div>
+            <div class="govuk-date-input" id="passport-issued">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                    Hours
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                    Minutes
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- buttons -->
+        <div class="govuk-button-group">
+
+          <form action="/travel-time/home-page/v2/confirm-adjusted" method="post" novalidate>
+
+            <button class="govuk-button" data-module="govuk-button" id="buttonPrimaryFive" name="personOneStatus" value="working">
+              Adjust for trave time
+            </button>
+
+          </form>
+
+          <form action="/travel-time/home-page/v2/confirm-ineligible" method="post" novalidate>
+
+            <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button" id="buttonAbsentSix" name="status" value="working">
+              Not eligible for travel time
+            </button>
+
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+{% endblock %}

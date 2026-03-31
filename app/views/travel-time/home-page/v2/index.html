@@ -1,0 +1,192 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Community payback prototypes
+{% endblock %}
+
+{% block content %}
+
+    <div class="govuk-grid-row" id="top">
+      <div class="govuk-grid-column-full">
+
+        <!--
+        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Success
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <h3 class="govuk-notification-banner__heading">
+              Training outcome recorded and trainee withdrawn
+            </h3>
+            <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>
+          </div>
+        </div>
+        -->
+
+        <h1 class="govuk-heading-l">Adjust appointments for travel time</h1>
+
+
+        <div style="padding: 25px 25px 0px 25px; background: #cecece; margin-bottom: 20px;">
+
+          <h2 class="govuk-heading-m">Find an appointment</h2>
+
+          <div class="govuk-form-group" style="display:inline-block;">
+            <label class="govuk-label" for="sort" style="font-weight: 700;">
+              Region
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="published">Recently published</option>
+              <option value="updated" selected>Ashford</option>
+              <option value="views">Most views</option>
+              <option value="comments">Most comments</option>
+            </select>
+          </div>
+          <div class="govuk-form-group" style="display:inline-block; margin-left: 20px;">
+            <label class="govuk-label" for="sort" style="font-weight: 700;">
+              Team
+            </label>
+            <select class="govuk-select" id="sort" name="sort">
+              <option value="published">Recently published</option>
+              <option value="updated" selected>Ashford</option>
+              <option value="views">Most views</option>
+              <option value="comments">Most comments</option>
+            </select>
+          </div>
+          <button type="submit" class="govuk-button" data-module="govuk-button" style="display:inline-block; margin-top: 30px; margin-left: 20px;">
+            Search
+          </button>
+        </div>
+
+      </div>
+
+      <div class="govuk-grid-column-full">
+
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Name</th>
+              <th scope="col" class="govuk-table__header">CRN</th>
+              <th scope="col" class="govuk-table__header">Date</th>
+              <th scope="col" class="govuk-table__header">Appointment type</th>
+              <th scope="col" class="govuk-table__header">Action</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Alex Boyle</th>
+              <td class="govuk-table__cell">42924323</td>
+              <td class="govuk-table__cell">26 Septmber 2026</td>
+              <td class="govuk-table__cell">Group supervision</td>
+              <td class="govuk-table__cell"><a href="/travel-time/appointment/v2">Update</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Prasad Ahmed</th>
+              <td class="govuk-table__cell">49324332</td>
+              <td class="govuk-table__cell">26 Septmber 2026</td>
+              <td class="govuk-table__cell">Group supervision</td>
+              <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Connor Powell</th>
+              <td class="govuk-table__cell">47524393</td>
+              <td class="govuk-table__cell">26 Septmber 2026</td>
+              <td class="govuk-table__cell">Group supervision</td>
+              <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Scott Green</th>
+              <td class="govuk-table__cell">45324392</td>
+              <td class="govuk-table__cell">26 Septmber 2026</td>
+              <td class="govuk-table__cell">Group supervision</td>
+              <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Zachary Herbert</th>
+              <td class="govuk-table__cell">46324392</td>
+              <td class="govuk-table__cell">26 Septmber 2026</td>
+              <td class="govuk-table__cell">Group supervision</td>
+              <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Hannah Mendez</th>
+              <td class="govuk-table__cell">47844323</td>
+              <td class="govuk-table__cell">26 Septmber 2026</td>
+              <td class="govuk-table__cell">Host partner</td>
+              <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Barry Clearwater</th>
+              <td class="govuk-table__cell">45924387</td>
+              <td class="govuk-table__cell">26 Septmber 2026</td>
+              <td class="govuk-table__cell">Host partner</td>
+              <td class="govuk-table__cell"><a href="/travel-time/appointment/v1">Update</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <nav class="govuk-pagination" aria-label="Pagination">
+          <div class="govuk-pagination__prev">
+            <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+              <svg class="govuk-pagination__icon govuk-pagination__icon--prev" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+              </svg>
+              <span class="govuk-pagination__link-title">
+                Previous<span class="govuk-visually-hidden"> page</span>
+              </span>
+            </a>
+          </div>
+          <ul class="govuk-pagination__list">
+            <li class="govuk-pagination__item govuk-pagination__item--current">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1">
+                1
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page">
+                2
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                3
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                4
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                5
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                6
+              </a>
+            </li>
+            <li class="govuk-pagination__item">
+              <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3">
+                7
+              </a>
+            </li>
+          </ul>
+          <div class="govuk-pagination__next">
+            <a class="govuk-link govuk-pagination__link" href="#" rel="next">
+              <span class="govuk-pagination__link-title">
+                Next<span class="govuk-visually-hidden"> page</span>
+              </span>
+              <svg class="govuk-pagination__icon govuk-pagination__icon--next" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+              </svg>
+            </a>
+          </div>
+        </nav>
+
+      </div>
+    </div>
+
+{% endblock %}
