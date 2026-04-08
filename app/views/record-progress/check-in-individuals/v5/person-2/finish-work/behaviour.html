@@ -1,0 +1,77 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+  text: "Back",
+  href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        How was their behaviour?
+      </h1>
+
+      <form class="form" action="./notes" method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="canWork-hint">
+            <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="canWork" name="canWork" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="canWork">
+                  Excellent
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="canWork-2" name="canWork" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="canWork-2">
+                  Good
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="canWork-3" name="canWork" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="canWork-3">
+                  Satisfactory
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="canWork-4" name="canWork" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="canWork-4">
+                  Unsatisfactory
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="canWork-5" name="canWork" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="canWork-5">
+                  Poor
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="canWork-6" name="canWork" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="canWork-6">
+                  Not applicable
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        {{ govukButton({
+          text: "Continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "layouts/signed-in.html" %}
+
+{% block pageTitle %}
+  Confirmation page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+        <div class="govuk-notification-banner__header">
+          <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+            Success
+          </h2>
+        </div>
+        <div class="govuk-notification-banner__content">
+          <h3 class="govuk-notification-banner__heading">
+            Alex Boyle session has been completed
+          </h3>
+          <!--
+          <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>
+          -->
+        </div>
+      </div>
+
+      <span class="govuk-caption-l">
+        CRN: 42924323
+      </span>
+      <h1 class="govuk-heading-l">Alex Boyle</h1>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            26 June 2026
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Location
+              </dt>
+              <dd class="govuk-summary-list__value">
+                Post Office, Lower Midford, SX22 3DL
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Time credited
+              </dt>
+              <dd class="govuk-summary-list__value">
+                3 hours 30 minutes
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Outcome
+              </dt>
+              <dd class="govuk-summary-list__value">
+                  <strong id="status-tag" class="govuk-tag govuk-tag--purple" style="margin-bottom: 0px;">
+                    Cannot work
+                  </strong> (service issues)
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      <p>
+        <br>
+        <a href="/record-progress/session-details/v4">
+          Return to session page
+        </a>
+      </p>
+
+
+    </div>
+  </div>
+
+{% endblock %}
